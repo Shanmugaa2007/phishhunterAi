@@ -13,6 +13,8 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors({origin:["http://localhost:5173"],Credentials:true}))
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -29,7 +31,7 @@ mongoose
         console.log(err.message);
     })
 
-    
+
     app.get("/",(req,res)=>{
     res.json({msg:"Root Url"})
 })
