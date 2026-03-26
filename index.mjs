@@ -106,7 +106,7 @@ app.post("/api/aiscore",async(req,res)=>{
     const content = req.body.message
     console.log(content)
     try{
-        const response = await axios.post("http://127.0.0.1:8000/check",{message:content})
+        const response = await axios.post("https://pythonai-b52u.onrender.com/check",{message:content})
         const data = new ScanHis({scannedInput:content,aiscore:response.data.risk_score,risklevel:response.data.result,type:response.data.type})
         await data.save();
         console.log(data);
